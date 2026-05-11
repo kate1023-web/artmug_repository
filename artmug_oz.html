@@ -270,9 +270,10 @@
                 font-family: 'TMoneyDungunbaram';
                 font-size: 16px;
                 font-weight: 800;
-
+                
                 padding: 16px 28px;
-                margin-top: 30px;
+                display: block;
+                margin: 30px auto 0;
 
                 border: 2px solid rgba(255,255,255,0.4);
                 border-radius: 20px;
@@ -288,6 +289,9 @@
                 0 4px 20px rgba(0,0,0,0.05);
 
                 transition: 0.3s;
+
+                position: relative;
+                overflow: hidden;
             }
 
             .glass-btn:hover {
@@ -297,6 +301,31 @@
 
                 box-shadow:
                 0 8px 24px rgba(55,150,240,0.15);
+            }
+
+            .glass-btn::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -75%;
+                width: 50%;
+                height: 100%;
+                background: linear-gradient(
+                    120deg,
+                    transparent,
+                    rgba(255,255,255,0.6),
+                    transparent
+                );
+                transform: skewX(-20deg);
+            }
+
+            .glass-btn:hover::before {
+                animation: shine 0.8s ease;
+            }
+
+            @keyframes shine {
+                0% { left: -75%; }
+                100% { left: 125%; }
             }
 
             .toast {
@@ -434,7 +463,7 @@
         <div class="background">
 
             <div class="profile-box">
-                <img class="profile-img" src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785235950_Re.jpg">
+                <img class="profile-img" src="https://lh3.google.com/u/0/d/1YNoH3bZwLfS-3G8EIDfXjnJotlj29yeE=w1920-h911-iv1?auditContext=prefetch">
 
                 <div class="profile-text">
                     <h1>OZ_DESIGN</h1>
@@ -561,30 +590,33 @@
             <div class="portfolio">
                 <h4 class="inquiry-title">포트폴리오</h4>
                 <div class="gallery">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229491_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229492_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229742_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229743_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229744_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230080_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230092_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230094_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230093_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230470_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229504_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229503_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229740_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229741_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230091_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230471_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230482_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230484_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230483_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230870_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230882_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229490_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230883_Re.jpg">
-                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230884_Re.jpg">
+                    <img src="https://lh3.google.com/u/0/d/1RNsHP-MhA_ny083T7p8AC_dT9MtlQFtj=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1xiEHKl7nDFNC6LATXLbU3G08WgtDOzPm=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1xDjBva_HrO88I3LiVLz2yxqo6dVlxcJB=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1yLcP4P-tmDc4vaYarDfrC5JocMIx8C5t=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1myNy7fQh-2olxo4qk0bs0VHzwoJ1q3RX=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1blBjhxCuLbSLNJL1B2pqPCHssCSgdtPR=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1lWuWnQnIVjHvdEViht15VltOGkf-cpTO=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1fU0TMG-Shnh6TxKpIuad7BmYxTq0kJkC=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1u7SuefWgcfzTWszD9olayuIoXqRaic_w=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/10Is4QwEpTngmAv65ScuszFGAq48hQT8_=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1ok0xofueoXqOGul-Y2y-ao-uQsu8b-cS=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1MVLKFym_Bkv-c8VtxKOIczEMap7JgMCz=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1hCf6TX3UUxQ-gaiJSQIda3YQHOkw4dpC=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1-MCrVk4qkXscnilf18OJ8Frf_k2BXc5D=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/105duvrMmlRV6OpkU_zb8_7paP0ZPORCK=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1J31Ey_U7spDScMUSC_ElGFW7WnCbHySl=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1DvuxmrE4aipEH0cwXOycqBzZ7dL_Mfnw=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1OEucTdJkuyWBxZzKjCB3GMNS1GD-Jb3F=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1aL_YenTJ36iP3LSvoBtDzO9VpcMKKpZB=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1jdz9aRWCFthnmMNrvkLwjzsuHkr9cqKj=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1D2hRx4ejvwWmlPApmS0PYWCNVR1sdoCi=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1sYR8CaS-wAoo22dB_oLqj8UxVQ9W92XL=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1Jn2dL8S_rfSX_x6oWSkdKbQiLBmLOhoL=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1imvO3rlOrFWL9RVP-jJL9Lb2z116yGAP=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/182ILsRI5vacQ7lBdFXwLHFEibUbr-fvn=w894-h895-iv1?auditContext=prefetch">
+                    <img src="https://lh3.google.com/u/0/d/1TTLm-_gvpv8Y974hKbO_0-SnGzc_5r2a=w894-h895-iv1?auditContext=forDisplay">
+                    <img src="https://lh3.google.com/u/0/d/1S3N2E9VpRWHzbKA_T1vAcGAUXrYOGxt4=w894-h895-iv1?auditContext=forDisplay">
                 </div>
             </div>
 
