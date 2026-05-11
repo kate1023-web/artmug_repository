@@ -333,18 +333,100 @@
                 transform: translateX(-50%) translateY(0);
             }
 
+            .portfolio {
+                flex-direction: column;
+                align-items: center;
+                text-align: left;
+                background: #e7f4ff;
+                padding: 40px 50px;
+            }
+
             .gallery {
                 display: grid;
 
                 grid-template-columns:
-                repeat(2, 1fr);
+                repeat(3, 1fr);
 
-                gap: 20px;
+                gap: 50px;
+
+                padding: 40px 50px;
+
+                background: #e7f4ff;
             }
 
             .gallery img {
                 width: 100%;
-                border-radius: 24px;
+                border-radius: 28px;
+                padding: 10px;
+                background: rgba(255,255,255,0.2);
+                backdrop-filter: blur(12px);
+                border: 2px solid rgba(255,255,255,0.4);
+                box-shadow:
+                0 8px 24px rgba(0,0,0,0.05);
+                transition: 0.3s;
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
+                cursor: pointer;
+            }
+
+            .gallery img:hover {
+                transform: translateY(-4px);
+                box-shadow:
+                0 12px 28px rgba(55,150,240,0.18);
+            }
+
+            .modal {
+                position: fixed;
+
+                inset: 0;
+
+                background: rgba(0,0,0,0.75);
+                backdrop-filter: blur(10px);
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                opacity: 0;
+                pointer-events: none;
+
+                transition: 0.3s;
+
+                z-index: 9999;
+            }
+
+            .modal.show {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .modal-img {
+                width: 85%;
+                max-width: 1400px;
+
+                border-radius: 30px;
+
+                border: 2px solid rgba(255,255,255,0.35);
+
+                box-shadow:
+                0 20px 60px rgba(0,0,0,0.35);
+
+                background: rgba(255,255,255,0.1);
+                backdrop-filter: blur(12px);
+
+                animation: zoomIn 0.25s ease;
+            }
+
+            @keyframes zoomIn {
+                from {
+                    transform: scale(0.9);
+                    opacity: 0;
+                }
+
+                to {
+                    transform: scale(1);
+                    opacity: 1;
+                }
             }
         </style>
     </head>
@@ -352,7 +434,7 @@
         <div class="background">
 
             <div class="profile-box">
-                <img class="profile-img" src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785160240_Re.jpg">
+                <img class="profile-img" src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785235950_Re.jpg">
 
                 <div class="profile-text">
                     <h1>OZ_DESIGN</h1>
@@ -476,17 +558,41 @@
                 </button>
             </div>
 
-            <div class="gallery">
-                <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785160240_Re.jpg">
-                <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785160240_Re.jpg">
-                <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785160240_Re.jpg">
-                <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785160240_Re.jpg">
+            <div class="portfolio">
+                <h4 class="inquiry-title">포트폴리오</h4>
+                <div class="gallery">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229491_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229492_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229742_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229743_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229744_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230080_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230092_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230094_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230093_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230470_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229504_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229503_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229740_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229741_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230091_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230471_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230482_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230484_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230483_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230870_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230882_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785229490_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230883_Re.jpg">
+                    <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785230884_Re.jpg">
+                </div>
             </div>
-
 
         </div>
 
-
+        <div id="imageModal" class="modal">
+            <img id="modalImg" class="modal-img">
+        </div>
         <div id="toast" class="toast">
             양식이 복사되었습니다!
         </div>
@@ -549,6 +655,24 @@ ${portfolio}`;
 
             });
 
+            const galleryImages =
+                document.querySelectorAll(".gallery img");
+                const modal =
+                document.getElementById("imageModal");
+                const modalImg =
+                document.getElementById("modalImg");
+                galleryImages.forEach((img) => {
+
+                    img.addEventListener("click", () => {
+                        modal.classList.add("show");
+                        modalImg.src = img.src;
+                    });
+
+                });
+                modal.addEventListener("click", () => {
+                    modal.classList.remove("show");
+
+            });
         </script>
     </body>
 </html>
