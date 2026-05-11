@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>OZ_DESIGN</title>
+
+        <style>
+            @font-face {
+                font-family: 'TMoneyDungunbaram';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindRegular.woff') format('woff');
+                font-weight: normal;
+                font-display: swap;
+            }
+
+            @font-face {
+                font-family: 'TMoneyDungunbaram';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
+                font-weight: 800;
+                font-display: swap;
+            }
+
+            .background {
+                margin: 0 auto;
+                width: 100%;
+                max-width: 1080px;
+
+                
+            }
+
+            @keyframes bg-change {
+
+                0% {
+                    background-color: #bde0fe;
+                }
+
+                50% {
+                    background-color: #a2d2ff;
+                }
+
+                100% {
+                    background-color: #3796f0;
+                }
+            }
+
+            body {
+                font-family: 'TMoneyDungunbaram' !important;
+                animation: bg-change 8s forwards;
+                margin: 0;
+                padding: 0;
+            }
+
+            .profile-box {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                background: linear-gradient(
+                    #e7f4ff 0%,
+                    #ffffff 100%
+                );
+                padding: 40px 50px;
+                gap: 40px;
+            }
+
+            .profile-img {
+                width: 200px;
+                height: 200px;
+                border-radius: 20%;
+                object-fit: cover;
+                padding: 10px;
+                background: rgba(255,255,255,0.2);
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(255,255,255,0.4);
+                box-shadow:
+                0 4px 20px rgba(0,0,0,0.04);
+                animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            }
+
+            .profile-text {
+                animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+                padding-left: 50px;
+                color: #006dd6;
+                background: rgba(255,255,255,0.2);
+                backdrop-filter: blur(10px);
+                padding: 20px 60px;
+                border-radius: 50px;
+                border: 2px solid rgba(255,255,255,0.4);
+                box-shadow:
+                0 4px 20px rgba(0,0,0,0.03);
+                display: inline-block;
+            }
+
+            @-webkit-keyframes text-focus-in {
+                0% {
+                    -webkit-filter: blur(12px);
+                            filter: blur(12px);
+                    opacity: 0;
+                }
+                100% {
+                    -webkit-filter: blur(0px);
+                            filter: blur(0px);
+                    opacity: 1;
+                }
+                }
+                @keyframes text-focus-in {
+                0% {
+                    -webkit-filter: blur(12px);
+                            filter: blur(12px);
+                    opacity: 0;
+                }
+                100% {
+                    -webkit-filter: blur(0px);
+                            filter: blur(0px);
+                    opacity: 1;
+                }
+            }
+
+
+            .profile-text h1 {
+                margin: 0;
+                font-size: 42px;
+            }
+
+            .profile-text p {
+                margin-top: 10px;
+                font-size: 18px;
+                line-height: 1.2!important;
+            }
+
+            .notice-box {
+                flex-direction: column;
+                align-items: center;
+                text-align: left;
+                background: #e7f4ff;
+                padding: 40px 50px;
+            }
+
+            .notice-title {
+                color: #006dd6;
+                background: rgba(255,255,255,0.2);
+                backdrop-filter: blur(10px);
+                padding: 10px 24px;
+                border-radius: 999px;
+                border: 2px solid rgba(255,255,255,0.4);
+                display: inline-block;
+                box-shadow:
+                0 4px 20px rgba(0,0,0,0.04);
+            }
+
+            .notice-title h4 {
+                margin: 0;
+                font-size: 30px;
+                border-radius: 50%;
+            }
+
+            .notice-text {
+                color: #006dd6;
+                line-height: 2.3!important;
+                font-size: 18px;
+                padding-left: 30px;
+            }
+
+            .inquiry-box {
+                flex-direction: column;
+                align-items: center;
+                text-align: left;
+                background: #e7f4ff;
+                padding: 40px 50px;
+            }
+
+            .inquiry-title {
+                color: #006dd6;
+                background: rgba(255,255,255,0.2);
+                backdrop-filter: blur(10px);
+                padding: 10px 24px;
+                border-radius: 999px;
+                border: 2px solid rgba(255,255,255,0.4);
+                display: inline-block;
+                box-shadow:
+                0 4px 20px rgba(0,0,0,0.04);
+            }
+
+            .inquiry-title h4 {
+                margin: 0;
+                font-size: 30px;
+                border-radius: 50%;
+            }
+
+            .inquiry-form {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                margin-top: 30px;
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .form-group label {
+                color: #006dd6;
+                font-size: 18px;
+                font-weight: normal;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-family: 'TMoneyDungunbaram';
+                font-size: 16px;
+
+                padding: 16px 20px;
+
+                border-radius: 20px;
+                border: 2px solid rgba(255,255,255,0.4);
+
+                background: rgba(255,255,255,0.25);
+                backdrop-filter: blur(10px);
+
+                color: #006dd6;
+
+                box-shadow:
+                0 4px 20px rgba(0,0,0,0.04);
+
+                outline: none;
+
+                transition: 0.3s;
+            }
+
+            .form-group textarea {
+                resize: vertical;
+                min-height: 120px;
+            }
+
+            .form-group input:focus,
+            .form-group textarea:focus {
+                border: 2px solid #3796f0;
+                transform: translateY(-2px);
+                box-shadow:
+                0 8px 24px rgba(55,150,240,0.15);
+            }
+
+            .file-notice {
+                margin: 0;
+
+                padding: 18px 22px;
+
+                border-radius: 20px;
+
+                background: rgba(255,255,255,0.2);
+                backdrop-filter: blur(10px);
+
+                border: 2px solid rgba(255,255,255,0.35);
+
+                color: #006dd6;
+
+                line-height: 1.6;
+                font-size: 15px;
+
+                box-shadow:
+                0 4px 20px rgba(0,0,0,0.04);
+            }
+
+            .form-group input[type="date"] {
+                cursor: pointer;
+            }
+
+            .glass-btn {
+                font-family: 'TMoneyDungunbaram';
+                font-size: 16px;
+                font-weight: 800;
+
+                padding: 16px 28px;
+                margin-top: 30px;
+
+                border: 2px solid rgba(255,255,255,0.4);
+                border-radius: 20px;
+
+                background: rgba(255,255,255,0.25);
+                backdrop-filter: blur(12px);
+
+                color: #006dd6;
+
+                cursor: pointer;
+
+                box-shadow:
+                0 4px 20px rgba(0,0,0,0.05);
+
+                transition: 0.3s;
+            }
+
+            .glass-btn:hover {
+                transform: translateY(-3px);
+
+                background: rgba(255,255,255,0.35);
+
+                box-shadow:
+                0 8px 24px rgba(55,150,240,0.15);
+            }
+
+            .toast {
+                position: fixed;
+
+                bottom: 30px;
+                left: 50%;
+
+                transform: translateX(-50%) translateY(30px);
+
+                padding: 16px 24px;
+
+                border-radius: 20px;
+
+                background: rgba(255,255,255,0.25);
+                backdrop-filter: blur(12px);
+
+                border: 2px solid rgba(255,255,255,0.4);
+
+                color: #006dd6;
+                font-weight: 800;
+
+                opacity: 0;
+                pointer-events: none;
+
+                transition: 0.4s;
+
+                box-shadow:
+                0 8px 24px rgba(0,0,0,0.08);
+            }
+
+            .toast.show {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+
+            .gallery {
+                display: grid;
+
+                grid-template-columns:
+                repeat(2, 1fr);
+
+                gap: 20px;
+            }
+
+            .gallery img {
+                width: 100%;
+                border-radius: 24px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="background">
+
+            <div class="profile-box">
+                <img class="profile-img" src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785160240_Re.jpg">
+
+                <div class="profile-text">
+                    <h1>OZ_DESIGN</h1>
+                    <p>
+                        버츄얼 그래픽 디자이너 오즈입니다.<br>
+                        최선을 다해 의뢰자 분의 컨셉에 어울리는 디자인을 합니다.
+                    </p>
+                </div>
+            </div>
+
+            <div class="notice-box">
+                <h4 class="notice-title">안내사항</h4>
+                <div class="notice-text">
+                    <li>
+                        공지사항을 읽지 않고 생긴 일에 대해서는 책임을 지지 않습니다.
+                    </li>
+
+                    <li>
+                        모든 저작물의 저작권은 <strong>저(OZ)</strong>에게 있습니다.
+                    </li>
+
+                    <li>
+                        작업물의 신청 용도 외 <strong>다른 용도로 사용할 시 불이익</strong>이 있을 수 있습니다.
+                    </li>
+
+                    <li>
+                        작업은 <strong>입금 순서</strong>대로 진행됩니다.
+                    </li>
+
+                    <li>
+                        작업은 <strong>결제 다음 날을 기준</strong>으로 시작되며 <strong>최대 1달</strong>까지 소요될 수 있습니다.
+                    </li>
+
+                    <li>
+                        작업물들은 일정표를 제외하고 PNG, JPEG 확장자로 제공됩니다. (일정표는 PSD파일로 제공됩니다)
+                    </li>
+                    
+                    <li>
+                        2차 수정 혹은 무단 배포는 적발 시 불이익이 있을 수 있습니다.
+                    </li>
+                    
+                    <li>
+                        최종본이 나오기 이전까지 수정은 <strong>최대 2회</strong> 무료로 가능하며 이후에는 추가금이 발생합니다.
+                    </li>
+
+                    <li>
+                        전체적인 분위기와 같은 큰 수정은 불가능할 수 있습니다.
+                    </li>
+
+                    <li>
+                        작업 시 일러스트가 사용될 때 반드시 일러스트레이터분께 2차 창작 및 수정 허락을 받으셔야합니다.
+                    </li>
+                    
+                    <li>
+                        최종 작업물들은 <strong>저(OZ)의 포트폴리오로 사용</strong>될 수 있으며 이를 원치 않으시면 추가금이 발생합니다.
+                    </li>
+
+                    <li>
+                        모든 작업 사이즈는 <strong>픽셀(px) 기준</strong>으로 작업됩니다.
+                    </li>
+                </div>
+            </div>
+
+            <div class="inquiry-box">
+                <h4 class="inquiry-title">문의양식</h4>
+                <form class="inquiry-form">
+                    <div class="form-group">
+                        <label>이름 (활동명)</label>
+                        <input id="nameInput" type="text" placeholder="활동명을 입력해주세요">
+                    </div>
+
+                    <div class="form-group">
+                        <label>작업 종류</label>
+                        <input id="workInput" type="text" placeholder="예: 방송화면, 로고, 일정표">
+                    </div>
+
+                    <div class="form-group">
+                        <label>원하는 작업 사이즈</label>
+                        <input id="sizeInput" type="text" placeholder="예: 1920x1080">
+                    </div>
+
+                    <div class="form-group">
+                        <label>원하는 색감</label>
+                        <input id="colorInput" type="text" placeholder="컬러코드도 가능합니다">
+                    </div>
+
+                    <div class="form-group">
+                        <label>들어가야하는 문구</label>
+                        <textarea id="textInput" rows="5"
+                        placeholder="디자인에 들어갈 문구를 작성해주세요"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>참조 레퍼런스 자료</label>
+                        <textarea id="refInput" rows="5"
+                        placeholder="레퍼런스 링크 또는 설명을 최소 3개 이상 적어주세요"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>인물 사진 첨부</label>
+
+                        <p class="file-notice">
+                            문의창에서 첨부해주세요<br>
+                            (배경이 투명한 캐릭터 png 파일)
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>원하는 작업 마감 기한</label>
+                        <input id="deadlineInput" type="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label>원하는 포트폴리오 업로드 기한</label>
+                        <input id="portfolioInput" type="date">
+                    </div>
+
+                </form>
+                <button type="button" id="copyBtn" class="glass-btn">
+                    양식복사
+                </button>
+            </div>
+
+            <div class="gallery">
+                <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785160240_Re.jpg">
+                <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785160240_Re.jpg">
+                <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785160240_Re.jpg">
+                <img src="https://artmugfile5.cafe24.com/image/up_img/detail/4/goods_40971/17785160240_Re.jpg">
+            </div>
+
+
+        </div>
+
+
+        <div id="toast" class="toast">
+            양식이 복사되었습니다!
+        </div>
+        <script>
+            const copyBtn = document.getElementById("copyBtn");
+
+            copyBtn.addEventListener("click", () => {
+                const name =
+                document.getElementById("nameInput").value;
+                const work =
+                document.getElementById("workInput").value;
+                const size =
+                document.getElementById("sizeInput").value;
+                const color =
+                document.getElementById("colorInput").value;
+                const text =
+                document.getElementById("textInput").value;
+                const ref =
+                document.getElementById("refInput").value;
+                const deadline =
+                document.getElementById("deadlineInput").value;
+                const portfolio =
+                document.getElementById("portfolioInput").value;
+                const result = `[OZ_DESIGN 문의양식]
+
+■ 이름 (활동명)
+${name}
+
+■ 작업 종류
+${work}
+
+■ 원하는 작업 사이즈
+${size}
+
+■ 원하는 색감
+${color}
+
+■ 들어가야하는 문구
+${text}
+
+■ 참조 레퍼런스 자료
+${ref}
+
+■ 인물 사진 첨부
+
+■ 원하는 작업 마감 기한
+${deadline}
+
+■ 원하는 포트폴리오 업로드 기한
+${portfolio}`;
+
+                navigator.clipboard.writeText(result);
+                const toast = document.getElementById("toast");
+
+                toast.classList.add("show");
+
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 2500);
+
+            });
+
+        </script>
+    </body>
+</html>
