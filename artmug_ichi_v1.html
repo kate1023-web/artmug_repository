@@ -1,0 +1,866 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ichi_design</title>
+
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
+
+        html,
+        body{
+            font-family: "Wanted Sans Variable", sans-serif;
+        }
+
+        .box {
+            margin-bottom: 30px;
+        }
+
+        .about-section{
+            display:flex;
+            flex-direction:column;
+            gap:30px;
+        }
+
+        .profile-box{
+            display:flex;
+            align-items:center;
+            gap:60px;
+        }
+
+        .profile-img {
+            width: 200px;
+        }
+
+        .profile-text {
+            margin-left: -25px;
+        }
+
+        .section-title{
+            display: flex;
+            align-items: flex-start;
+            color: #8b8b97;
+            gap: 8px;
+        }
+
+        .about-section{
+            position:relative;
+
+            border:1px solid #8b8b97;
+            border-radius:30px;
+
+            padding:20px 40px 40px;
+        }
+
+        .section-number{
+            width:50px;
+            height:50px;
+            background:#8b8b97;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            color:#fff;
+            font-weight:700;
+            font-size:20px;
+        }
+
+        .section-title{
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+        }
+
+        .section-title h2{
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .section-title p{
+            margin: 0;
+            font-size: 14px;
+            color: #8b8b97;
+        }
+
+        .title-top{
+            display:flex;
+            align-items:center;
+            gap:16px;
+        }
+
+        .cooperation-section{
+            position:relative;
+
+            border:1px solid #8b8b97;
+            border-radius:30px;
+
+            padding:20px 40px 40px;
+        }
+
+        .cooperation-box {
+            display: grid;
+            grid-template-columns: repeat(5, 300px);
+            gap: 30px 30px;
+            justify-content: start;
+            text-align: center;
+        }
+
+        .coo-title {
+            margin-bottom: 30px;
+        }
+
+        .cooperation-box a{
+            display:block;
+            color:inherit;
+            text-decoration:none;
+        }
+
+        .card{
+            position:relative;
+
+            border:1px solid #8b8b97;
+            border-radius:30px;
+
+            padding:20px 50px;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .cooperation-box a:hover .card{
+            transform:translateY(-4px);
+            box-shadow:0 12px 24px rgba(0,0,0,.12);
+        }
+        .coo-img {
+            width: 100px;
+            border-radius: 500px;
+        }
+
+        .portfolio-section {
+            position:relative;
+
+            border:1px solid #8b8b97;
+            border-radius:30px;
+
+            padding:20px 40px 40px;
+        }
+
+        .portfolio-slider{
+            position:relative;
+            width:100%;
+            max-width:1000px;
+            margin:auto;
+        }
+
+        .slider-window{
+            width:100%;
+            overflow:hidden;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .slider-track{
+            display:flex;
+            transition:transform .5s ease;
+        }
+
+        .slide{
+            flex:0 0 100%;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .slide img{
+            width:70%;
+            max-width:700px;
+
+            height:auto;
+            object-fit:contain;
+
+            border-radius:20px;
+        }
+
+
+        .arrow{
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+            width:52px;
+            height:52px;
+
+            border:none;
+            border-radius:50%;
+            background:white;
+
+            box-shadow:0 5px 15px rgba(139,139,151,.30);
+            cursor:pointer;
+            font-size:22px;
+        }
+
+        .prev{
+            left:-25px;
+            z-index: 10;
+        }
+
+        .next{
+            right:-25px;
+            z-index: 10;
+        }
+
+        .dots{
+            display:flex;
+            justify-content:center;
+            gap:10px;
+            margin-top:25px;
+        }
+
+        .dot{
+            width:10px;
+            height:10px;
+            border-radius:50%;
+            background:#d9d9d9;
+        }
+
+        .dot.active{
+            background:#8b8b97;
+        }
+
+        .inquiry-section {
+            position:relative;
+
+            border:1px solid #8b8b97;
+            border-radius:30px;
+
+            padding:20px 40px 40px;
+        }
+
+        .inquiry-form{
+            margin-top: 30px;
+            display:flex;
+            flex-direction:column;
+            gap:22px;
+            position:relative;
+
+            border:1px solid #8b8b97;
+            border-radius:30px;
+
+            padding:20px 40px 40px;
+        }
+
+        .form-row{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:24px;
+        }
+
+        .form-group{
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+        }
+
+        .form-group label{
+            font-size:15px;
+            font-weight:700;
+            color:#8b8b97;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea{
+
+            width:100%;
+            box-sizing:border-box;
+
+            padding:14px 16px;
+
+            border:1px solid #d7ddea;
+            border-radius:12px;
+
+            background:#fff;
+
+            font-size:15px;
+
+            transition:.2s;
+        }
+
+        .form-group textarea{
+            resize:vertical;
+            min-height:120px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus{
+
+            border-color:#8b8b97;
+            outline:none;
+
+            box-shadow:0 0 0 3px rgba(47,103,177,.12);
+        }
+
+        .btn-wrap{
+            margin-top:15px;
+        }
+
+        .glass-btn{
+
+            padding:14px 34px;
+
+            border:none;
+            border-radius:12px;
+
+            background:#8b8b97;
+            color:white;
+
+            font-size:16px;
+            font-weight:700;
+
+            cursor:pointer;
+
+            transition:.2s;
+        }
+
+        .glass-btn:hover{
+            background:#6f6f77;
+        }
+
+        .toast{
+            position:fixed;
+            left:50%;
+            bottom:40px;
+            transform:translateX(-50%) translateY(20px);
+
+            background:#333;
+            color:#fff;
+
+            padding:14px 22px;
+            border-radius:12px;
+
+            opacity:0;
+            visibility:hidden;
+
+            transition:.3s;
+
+            z-index:9999;
+        }
+
+        .toast.show{
+            opacity:1;
+            visibility:visible;
+            transform:translateX(-50%) translateY(0);
+        }
+
+        .toast.error{
+            background:#d9534f;
+        }
+
+        .notice-section {
+            position:relative;
+
+            border:1px solid #8b8b97;
+            border-radius:30px;
+
+            padding:20px 40px 40px;
+        }
+
+        .notice-section{
+            display:flex;
+            flex-direction:column;
+            gap:35px;
+        }
+        
+        .sec-title {
+            margin-bottom: 30px;
+        }
+
+        .notice-row{
+            display:grid;
+            grid-template-columns:180px 1fr;
+            gap:20px;
+            align-items:start;
+        }
+
+        .notice-title{
+            font-weight:700;
+            font-size:18px;
+            color:#333;
+        }
+
+        .notice-row ul{
+            margin:0;
+            padding-left:30px;
+        }
+
+        .notice-row li{
+            margin-bottom:12px;
+            line-height:1.8;
+            color:#555;
+        }
+
+        .item-section {
+            position:relative;
+
+            border:1px solid #8b8b97;
+            border-radius:30px;
+
+            padding:20px 40px 40px;
+        }
+
+        .item-list{
+            display:grid;
+            grid-template-columns:repeat(2, 1fr);
+            gap:24px;
+        }
+
+        .item-row{
+            display:grid;
+            grid-template-columns:100px 1fr;
+            gap:20px;
+            align-items:start;
+        }
+
+        .item-title{
+            font-weight:700;
+            font-size:18px;
+        }
+
+        .item-row ul{
+            margin:0;
+            padding-left:20px;
+        }
+
+        .item-row li{
+            line-height:1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="about-section box">
+        <div class="section-title">
+            <div class="title-top">
+                <div class="section-number">01</div>
+                <h2>ABOUT</h2>
+            </div>
+        </div>
+
+        <div class="profile-box">
+            <img class="profile-img" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fbz3XTi%2FdJMcajwm0LU%2FAAAAAAAAAAAAAAAAAAAAANJl7jU3YwA84ZISUBNtiP-pujjIkpceOmZoQ-E5Lhv5%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1785509999%26allow_ip%3D%26allow_referer%3D%26signature%3DVBMa%252Bs0Pz8m5Hw%252F6AscC0D2NfT0%253D">
+
+            <div class="profile-text">
+                <p>
+                    안녕하세요,<br>
+                    그래픽 디자이너 <b>이치(ichi)</b>입니다.<br><br>
+
+                    크리에이터의 분위기와 매력을 정확히 짚어<br>
+                    눈에 남는 비주얼 아이덴티티를 제작합니다.<br><br>
+
+                    단순 제작이 아닌,<br>
+                    브랜딩 관점에서 설계하는 디자인을 제공합니다.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cooperation-section box">
+        <div class="section-title coo-title">
+            <div class="title-top">
+                <div class="section-number">02</div>
+                <h2>협업 작가</h2>
+            </div>
+            <p>작가님을 클릭하면 개별 페이지로 이동합니다.</p>
+        </div>
+        
+        <div class="cooperation-box">
+            <a href="https://artmug.kr/index.php?channel=view&uid=51376" target="_blank">
+            <div class="card">
+                <img class="coo-img" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FnLWvH%2FdJMcajwm0LT%2FAAAAAAAAAAAAAAAAAAAAAPmBs6p0nK_HbB-FxMKMUdxLzVQF1ym0ubV7FVqNufeu%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1785509999%26allow_ip%3D%26allow_referer%3D%26signature%3DZoKRa63iOVGbt3dDFQmbXZRW3as%253D">
+                <h4>앤디 작가님</h4>
+                <p>[일러스트 & 리깅]</p>
+                <p>5만원 할인</p>
+            </div>
+            </a>
+
+            <a href="https://artmug.kr/index.php?channel=view&uid=48599" target="_blank">
+            <div class="card">
+                <img class="coo-img" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FTdPeo%2FdJMcaae8KB5%2FAAAAAAAAAAAAAAAAAAAAALLdL5IAZVY-pqG3bNwvVNGc-L-dEr-AJmxAbK_0DGtd%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1785509999%26allow_ip%3D%26allow_referer%3D%26signature%3DCRWYPTtOkrjXqxnp%252BQiVNZRKDWQ%253D">
+                <h4>포레 작가님</h4>
+                <p>리깅</p>
+                <p>5만원 할인</p>
+            </div>
+            </a>
+
+            <a href="https://artmug.kr/index.php?channel=view&uid=45788" target="_blank">
+            <div class="card">
+                <img class="coo-img" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FyIqbB%2FdJMcaae8KB7%2FAAAAAAAAAAAAAAAAAAAAAKk4ijNPNqNzawgLJRdHlkSs2bDTX7Yu0fBS8Mz9MWxz%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1785509999%26allow_ip%3D%26allow_referer%3D%26signature%3DUwErOxRi2t9za8Ode3g%252FlMIR%252FFo%253D">
+                <h4>달먕 작가님</h4>
+                <p>일러스트</p>
+                <p>버츄얼 일러스트 5만원 할인</p>
+            </div>
+            </a>
+
+            <a href="https://artmug.kr/index.php?channel=view&uid=28395" target="_blank">
+            <div class="card">
+                <img class="coo-img" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FJH0qp%2FdJMcaae8KB6%2FAAAAAAAAAAAAAAAAAAAAAPG3YPryFI1-BasrgJn6sKYQNaUangXOlpqtMDIhVBUM%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1785509999%26allow_ip%3D%26allow_referer%3D%26signature%3DaZif9hZaO3TOqsCtz913M5LPHiM%253D">
+                <h4>호꿀 작가님</h4>
+                <p>일러스트</p>
+                <p>5만원 할인</p>
+            </div>
+            </a>
+
+            <a href="https://artmug.kr/index.php?channel=view&uid=27054" target="_blank">
+            <div class="card">
+                <img class="coo-img" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcjCE4c%2FdJMcajwm0LS%2FAAAAAAAAAAAAAAAAAAAAADiHN0-C5lOKfX-oKjenhD5iYZW1oObimWFRKIGJHSx7%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1785509999%26allow_ip%3D%26allow_referer%3D%26signature%3DwLo5rgd2r2KmztGwm8m1HdWOo5M%253D">
+                <h4>한태성 작가님</h4>
+                <p>일러스트</p>
+                <p>일러스트 기본금 10%</p>
+            </div>
+            </a>
+
+            <a href="https://artmug.kr/index.php?channel=view&uid=55643" target="_blank">
+            <div class="card">
+                <img class="coo-img" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FmdnXE%2FdJMcajwm0LV%2FAAAAAAAAAAAAAAAAAAAAAItlsJ-AhdyTdNZwrBbFaOgH24PXqTOBoXokaq6c9hn0%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1785509999%26allow_ip%3D%26allow_referer%3D%26signature%3DWYlHgfnHp5SrPX0dOxcFAViN9zI%253D">
+                <h4>카이트 작가님</h4>
+                <p>리깅</p>
+                <p>5만원 할인</p>
+            </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="portfolio-section box">
+        <div class="section-title">
+            <div class="title-top">
+                <div class="section-number">03</div>
+                <h2>포트폴리오</h2>
+            </div>
+        </div>
+
+        <div class="portfolio-slider">
+
+            <button class="arrow prev">&#10094;</button>
+            <button class="arrow next">&#10095;</button>
+
+            <div class="slider-window">
+                <div class="slider-track">
+
+                    <div class="slide">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FsXDa2%2FdJMcabryckE%2FAAAAAAAAAAAAAAAAAAAAAAT4sJv06BnNP_Tv6l5olKiAXZaxvxyN2EuSULV5LIRJ%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1785509999%26allow_ip%3D%26allow_referer%3D%26signature%3D746VSz%252F5s89FXKyqQDNE9SvhteA%253D">
+                    </div>
+
+                    <div class="slide">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fcp7wgm%2FdJMcabryckC%2FAAAAAAAAAAAAAAAAAAAAAIzLeDUOKgEpM9I805Njc-9mSNIPo9WFRQF8rdVPGcJX%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1785509999%26allow_ip%3D%26allow_referer%3D%26signature%3Da%252FB3%252FNrnHd6n9Bm0WIWVbnhX9nc%253D">
+                    </div>
+
+                    <div class="slide">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbPtt93%2FdJMcabygHZE%2FAAAAAAAAAAAAAAAAAAAAAOT8BaKLBSAaoiMgAwM9tpB1lDuCcfLz4Uh7GF2aOcvR%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1785509999%26allow_ip%3D%26allow_referer%3D%26signature%3DINMif4JfYbn0Y59%252BKzDA9vHEWQI%253D">
+                    </div>
+
+                    <div class="slide">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FluER1%2FdJMcacxegOh%2FAAAAAAAAAAAAAAAAAAAAAKgdkptvn_IOCpKNgZ6RYp19U7BjB7QZJ8rTTY2ii6fE%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1785509999%26allow_ip%3D%26allow_referer%3D%26signature%3D9q6qulti9uqZeElnVAb%252FHuHFcWM%253D">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="inquiry-section box">
+        <div class="section-title">
+            <div class="title-top">
+                <div class="section-number">04</div>
+                <h2>신청 양식</h2>
+            </div>
+        </div>
+        
+        <form class="inquiry-form">
+            <div class="form-row">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>활동명 / 닉네임</label>
+                        <input id="nameInput" type="text" placeholder="예 : 이치">
+                    </div>
+                    <div class="form-group">
+                        <label>희망 납품일</label>
+                        <input id="deadlineInput" type="date">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="workInput">의뢰 종류</label>
+
+                <select id="workInput" name="work">
+                    <option value="poster">포스터 (키비주얼 / 홍보)</option>
+                    <option value="overlay">방송 오버레이 / 채팅 CSS</option>
+                    <option value="logo">로고 디자인</option>
+                    <option value="goods">굿즈 디자인</option>
+                    <option value="etc">기타</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>원하는 작업 사이즈</label>
+                <input id="sizeInput" type="text" placeholder="예: 1920x1080">
+            </div>
+
+            <div class="form-group">
+                <label>희망 색감 / 스타일</label>
+                <input id="colorInput" type="text" placeholder="예 : 파스텔톤, 다크한 분위기 등">
+            </div>
+
+            <div class="form-group">
+                <label>예산</label>
+                <input id="textInput" rows="5"
+                placeholder="예 : 10만원 내외">
+            </div>
+
+            <div class="form-group">
+                <label>기타 요청사항</label>
+                <textarea id="refInput" rows="5"
+                placeholder="캐릭터 키워드, 참고 이미지 링크, 세계관 정보 등 자유롭게 작성해주세요."></textarea>
+            </div>
+
+            <div class="btn-wrap">
+            <button type="button" id="copyBtn" class="glass-btn">
+                신청서 제출
+            </button>
+
+            <div id="toast" class="toast">
+                양식이 복사되었습니다!
+            </div>
+        </div>
+        </form>
+        
+    </div>
+    
+    <div class="notice-section box">
+        <div class="section-title sec-title">
+            <div class="title-top">
+                <div class="section-number">05</div>
+                <h2>의뢰 전 확인사항</h2>
+            </div>
+                <p>원활한 진행을 위해 아래 사항을 반드시 확인 후 문의 부탁드립니다.</p>
+        </div>
+
+        <div class="notice-row">
+            <div class="notice-title">저작권 및 사용 범위</div>
+
+            <ul>
+                <li>모든 작업물의 저작권은 디자이너 이치(ichi)에게 귀속됩니다.</li>
+                <li>사전 협의되지 않은 2차 가공, 재배포, AI 학습 활용은 금지됩니다.</li>
+                <li>의뢰자는 개인 활동(SNS, 방송 등)에 한해 사용 가능하며,<br>
+                굿즈 제작·판매 등 수익 목적 사용은 별도 라이선스 협의가 필요합니다.</li>
+            </ul>
+        </div>
+
+        <div class="notice-row">
+            <div class="notice-title">포트폴리오 사용</div>
+
+            <ul>
+                <li>모든 작업은 선입금 확인 후 일정이 확정됩니다.</li>
+                <li>전달된 시안 이후의 방향성 변경은 수정이 아닌 재작업으로 간주됩니다.</li>
+                <li>단순 변심에 의한 환불은 어렵습니다.</li>
+            </ul>
+        </div>
+
+        <div class="notice-row">
+            <div class="notice-title">파일 제공 범위</div>
+
+            <ul>
+                <li>기본 제공 파일은 PNG/JPG입니다.</li>
+                <li>원본 파일(PSD, AI 등)은 제공되지 않으며, 필요 시 별도 비용이 발생합니다.</li>
+            </ul>
+        </div>
+
+        <div class="notice-row">
+            <div class="notice-title">비용 및 진행 방식</div>
+
+            <ul>
+                <li>모든 작업은 선입금 확인 후 진행됩니다.</li>
+                <li>시안 전달 이후 단순 변심에 의한 환불은 어렵습니다.</li>
+                <li>기본 수정 2회가 포함되어 있으며, 추가 수정은 별도 비용이 발생합니다.</li>
+                <li>상업 목적/기업 외주 커미션은 기본 단가의 2배가 적용됩니다.</li>
+            </ul>
+        </div>
+
+        <div class="notice-row">
+            <div class="notice-title">작업 진행</div>
+
+            <ul>
+                <li>일정은 결제 완료 순으로 배겅되며, 순차적으로 진행됩니다.</li>
+                <li><b>진행 절차 : 신청서 검토 → 콘셉트 및 방향성 확정 → 1차 시안 제공 → 피드백 반영 → 최종 결과물 전달</b></li>
+                <li>현재 스케줄에 따라 의뢰를 선별하여 진행하고 있으니, 일정은 충분한 여유를 두고 문의 부탁드립니다.</li>
+                <li>구체적인 레퍼런스 및 기획 내용은 작업 시작 전 전달 부탁드립니다.</li>
+                <li>작업 중 방향성 변경은 추가 비용이 발생할 수 있습니다.</li>
+                <li>타 작가의 스타일 복제 요청은 받지 않습니다.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="item-section box">
+    <div class="section-title sec-title">
+        <div class="title-top">
+            <div class="section-number">06</div>
+            <h2>작업 품목</h2>
+        </div>
+    </div>
+
+    <div class="item-list">
+
+        <div class="item-row">
+            <div class="item-title">포스터</div>
+            <ul>
+                <li>키비주얼 포스터</li>
+                <li>홍보 포스터</li>
+            </ul>
+        </div>
+
+        <div class="item-row">
+            <div class="item-title">오버레이</div>
+            <ul>
+                <li>방송 오버레이 / 채팅 CSS</li>
+                <li>게임 오버레이 / 스케줄표</li>
+            </ul>
+        </div>
+
+        <div class="item-row">
+            <div class="item-title">콘텐츠</div>
+            <ul>
+                <li>로고 디자인</li>
+                <li>콘텐츠 오버레이 / 포스터</li>
+            </ul>
+        </div>
+
+        <div class="item-row">
+            <div class="item-title">굿즈</div>
+            <ul>
+                <li>아크릴류 / 뱃지류</li>
+                <li>티셔츠 / SNS 홍보 이미지</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+        const track = document.querySelector(".slider-track");
+        const slides = document.querySelectorAll(".slide");
+        const dots = document.querySelectorAll(".dot");
+
+        let current = 0;
+
+        function updateSlider(){
+
+            track.style.transform = `translateX(-${current * 100}%)`;
+
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[current].classList.add("active");
+
+        }
+
+        document.querySelector(".next").addEventListener("click",()=>{
+
+            current = (current + 1) % slides.length;
+
+            updateSlider();
+
+        });
+
+        document.querySelector(".prev").addEventListener("click",()=>{
+
+            current = (current - 1 + slides.length) % slides.length;
+
+            updateSlider();
+
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+                current = index;
+                updateSlider();
+            });
+        });
+        
+        const copyBtn = document.getElementById("copyBtn");
+        const toast = document.getElementById("toast");
+
+        copyBtn.addEventListener("click", () => {
+
+            const name = document.getElementById("nameInput").value.trim();
+            const deadline = document.getElementById("deadlineInput").value;
+            const work = document.getElementById("workInput").value;
+            const size = document.getElementById("sizeInput").value.trim();
+            const color = document.getElementById("colorInput").value.trim();
+            const budget = document.getElementById("textInput").value.trim();
+            const request = document.getElementById("refInput").value.trim();
+
+            // 하나라도 비어있으면
+            if(
+                !name ||
+                !deadline ||
+                !work ||
+                !size ||
+                !color ||
+                !budget ||
+                !request
+            ){
+                showToast("모든 항목을 입력해주세요.", true);
+                return;
+            }
+
+            // 복사할 내용
+            const result =
+        `활동명 : ${name}
+희망 납품일 : ${deadline}
+의뢰 종류 : ${work}
+작업 사이즈 : ${size}
+희망 색감 : ${color}
+예산 : ${budget}
+
+기타 요청사항
+        ${request}`;
+
+            navigator.clipboard.writeText(result);
+
+            showToast("양식이 복사되었습니다!", false);
+
+        });
+
+        function showToast(message, isError){
+
+            toast.textContent = message;
+
+            toast.classList.remove("error");
+
+            if(isError){
+                toast.classList.add("error");
+            }
+
+            toast.classList.add("show");
+
+            setTimeout(()=>{
+                toast.classList.remove("show");
+            },2000);
+
+        }
+    </script>
+
+</body>
+</html>
